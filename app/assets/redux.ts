@@ -3,37 +3,51 @@ export default function reduxQues() {
         {
             quest: "",
             opt: [],
-            ans: ""
+            ans: "",
+            ansd: false,
+            correct: false
         },
         {
             quest: "",
             opt: [],
-            ans: ""
+            ans: "",
+            ansd: false,
+            correct: false
         },
         {
             quest: "",
             opt: [],
-            ans: ""
+            ans: "",
+            ansd: false,
+            correct: false
         },
         {
             quest: "",
             opt: [],
-            ans: ""
+            ans: "",
+            ansd: false,
+            correct: false
         },
         {
             quest: "",
             opt: [],
-            ans: ""
+            ans: "",
+            ansd: false,
+            correct: false
         },
         {
             quest: "",
             opt: [],
-            ans: ""
+            ans: "",
+            ansd: false,
+            correct: false
         },
         {
             quest: "",
             opt: [],
-            ans: ""
+            ans: "",
+            ansd: false,
+            correct: false
         }
     ]
     
