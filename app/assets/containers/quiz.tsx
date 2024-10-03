@@ -10,6 +10,25 @@ export default function Quiz() {
     let unAnswered = javascriptQues();
     const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
     let answered: any = []
+    
+    React.useEffect(() => {
+        function addUpTo(n: number): number {
+         return n * ( n + 1 ) /2 // runs fine
+         // return n + addUpTo(n - 1) // maximum call stack size exeeded in next env
+        }
+        function accessElem(arr: any, idx: number): any {
+         return arr[idx]
+        }
+        const arr2 = Array.from({ length: 1000 }, (_, idx) => idx + 1)
+   
+        console.time('Access Element 1')
+        console.log( accessElem(['hello', 1, 3, () => 'hello MF', 5], 4) )
+        console.timeEnd('Access Element 1')
+   
+        console.time('Access Element 2')
+        console.log( accessElem(arr2, 120) )
+        console.timeEnd('Access Element 2')
+     }, [])
 
 
     const questions = unAnswered.map((item, id) => {           
