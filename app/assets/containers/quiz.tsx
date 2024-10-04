@@ -10,8 +10,87 @@ export default function Quiz() {
     let unAnswered = javascriptQues();
     const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
     let answered: any = []
-    
+
     React.useEffect(() => {
+        //
+        function maxSubArrSum(arr: number[], k: number) {
+            let sum = -Infinity;
+      
+            for (let i = 0; i < arr.length; i++) {
+              let sum4 = 0;
+      
+              for (let j = 0; j < k; j++ ) {
+                console.log(arr[i+j])
+                
+                if( Number.isNaN(arr[i+j])){
+                  sum = sum4;
+                  break;
+                }
+                sum4 += arr[i+j]
+      
+                if(sum4 > sum ){
+                  sum = sum4
+                }
+      
+              }
+            }
+      
+            return sum;
+          }
+      
+          function maxSubarrSum(arr: number[], k: number) {
+            let maxSum = -Infinity;
+      
+            for (let i = 0; i < arr.length - k; i++) {
+              let currentSum = 0;
+      
+              for (let j = i; j < i + k; j++) {
+                currentSum += arr[j]
+              }
+      
+              maxSum = Math.max(maxSum, currentSum) //0,12 return 12; 12, 43 return 43
+            }
+      
+            return maxSum
+          }
+          
+          console.time("maxSubarrSum")
+          console.log([2, 3,7,11, 4, 5, 10, 23, 1, 2, 23], maxSubarrSum([2, 3,-7,11, 4, 5, 10, -23, 1, -2, 23], 4) )
+          console.timeEnd("maxSubarrSum") //maxSubarrSum: 1.182861328125 ms
+      
+          console.time("Mine maxSubArrSum")
+          console.log([2, 5, 3, 1, 11, 7, 6, 4], maxSubArrSum([-2, 5, -3, 1, 11, 7, -6, 4], 3))
+          console.timeEnd("Mine maxSubArrSum") //Mine maxSubArrSum: 11.18798828125 ms
+
+          function add(arr: number[]) {
+            let sum = 0, sum2 = 0;
+            for ( let i = 0; i < arr.length; i++ ) {
+              sum += arr[i]
+              for (let j = 0; j < arr.length; j++ ) {
+                sum2 += arr[j]
+              }
+            }
+      
+            console.log( sum, "+", sum2, "=" ,sum +sum2)
+            return sum + sum2
+          }
+          // console.log(add([1,2,3,4,5]))
+      
+          function matrix(num: any): number[] {
+            let matrix: any = [];
+            for ( let i = 0; i < num; i++ ) {
+              matrix[i] = []
+              for (let j = 0; j < num; j++ ) {
+                matrix[i][j] = i + j
+              }
+            }
+      
+            return matrix
+          }
+      
+          // console.log(matrix(2))
+
+        // 
         function addUpTo(n: number): number {
          return n * ( n + 1 ) /2 // runs fine
          // return n + addUpTo(n - 1) // maximum call stack size exeeded in next env
