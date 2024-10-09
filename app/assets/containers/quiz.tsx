@@ -12,6 +12,72 @@ export default function Quiz() {
     let answered: any = []
 
     React.useEffect(() => {
+      // class Stack {
+
+      //   constructor () {
+      //     this.maxSize = 100;
+      //     this.stack = [];
+      //     this.top = -1
+      //   }
+      
+      //   isFull () {
+      //     return this.top === this.maxSize
+      //   }
+      //   isEmpty() {
+      //     return this.top === -1
+      //   }
+      
+      //   push(value) {
+      //     if(this.isFull()){
+      //       return false;
+      //     }
+      
+      //     this.top++;
+      //     this.stack[this.top] = value;
+      //     return true;
+      //   }
+      
+      //   pop() {
+      //     if ( this.isEmpty() ) {
+      //       return null
+      //     }
+      
+      //     this.top--;
+      //     return this.stack.pop();
+      //   }
+      
+      //   peek() {
+      //     if( this.isEmpty() ){
+      //       return null
+      //     }else {
+      //       return this.stack[this.top]
+      //     }
+      //   }
+      // }
+      // const stack = new Stack();
+
+      const stack = { peek: () => 4, push: (item: any) => item} // fake new class
+      
+      function reverseStringStack(str = ''): string{
+        if(str.length === 0){
+          return ''
+        } 
+        
+        stack.push(str.at(str.length - 1))
+      
+        return stack.peek() + reverseStringStack(str.slice(0, str.length - 1))
+      }
+      
+      console.log(reverseStringStack('hello world'))
+
+        /////////////////////////!mine
+        function reverseString(str = ''): string {
+          if(str.length === 0){
+            return ''
+          } 
+        
+          return str.at(str.length -1) + reverseString(str.slice(0, str.length - 1))
+        }/////////////////////
         //
         function maxSubArrSum(arr: number[], k: number) {
             let sum = -Infinity;
