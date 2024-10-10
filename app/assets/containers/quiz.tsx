@@ -56,7 +56,30 @@ export default function Quiz() {
       // }
       // const stack = new Stack();
 
-      const stack = { peek: () => 4, push: (item: any) => item} // fake new class
+      const stack = { peek: () => 4, push: (item: any) => item, pop: () => true} // fake new class
+
+      // function balancedParenthesis(parenthesis) {
+      //   const map = {
+      //     "(": ")"
+      //   };
+    
+      //   if(parenthesis === '' ){
+      //     if(stack.peek()){
+      //       return false
+      //     }
+      //     return true
+      //   }else{
+      //     if(map[parenthesis.at(0)] ){
+      //       stack.push(parenthesis.at(0))
+      //     }else {
+      //       stack.pop()
+      //     }
+      //   }
+    
+      //   return balancedParenthesis(parenthesis.slice(i++))
+      // }
+    
+      // console.log(balancedParenthesis('()()()') )
       
       function reverseStringStack(str = ''): string{
         if(str.length === 0){
@@ -70,55 +93,55 @@ export default function Quiz() {
       
       console.log(reverseStringStack('hello world'))
 
-        /////////////////////////!mine
-        function reverseString(str = ''): string {
-          if(str.length === 0){
-            return ''
-          } 
-        
-          return str.at(str.length -1) + reverseString(str.slice(0, str.length - 1))
-        }/////////////////////
-        //
-        function maxSubArrSum(arr: number[], k: number) {
-            let sum = -Infinity;
+      /////////////////////////!mine
+      function reverseString(str = ''): string {
+        if(str.length === 0){
+          return ''
+        } 
       
-            for (let i = 0; i < arr.length; i++) {
-              let sum4 = 0;
-      
-              for (let j = 0; j < k; j++ ) {
-                console.log(arr[i+j])
-                
-                if( Number.isNaN(arr[i+j])){
-                  sum = sum4;
-                  break;
-                }
-                sum4 += arr[i+j]
-      
-                if(sum4 > sum ){
-                  sum = sum4
-                }
-      
+        return str.at(str.length -1) + reverseString(str.slice(0, str.length - 1))
+      }/////////////////////
+      //
+      function maxSubArrSum(arr: number[], k: number) {
+          let sum = -Infinity;
+    
+          for (let i = 0; i < arr.length; i++) {
+            let sum4 = 0;
+    
+            for (let j = 0; j < k; j++ ) {
+              console.log(arr[i+j])
+              
+              if( Number.isNaN(arr[i+j])){
+                sum = sum4;
+                break;
               }
-            }
-      
-            return sum;
-          }
-      
-          function maxSubarrSum(arr: number[], k: number) {
-            let maxSum = -Infinity;
-      
-            for (let i = 0; i < arr.length - k; i++) {
-              let currentSum = 0;
-      
-              for (let j = i; j < i + k; j++) {
-                currentSum += arr[j]
+              sum4 += arr[i+j]
+    
+              if(sum4 > sum ){
+                sum = sum4
               }
-      
-              maxSum = Math.max(maxSum, currentSum) //0,12 return 12; 12, 43 return 43
+    
             }
-      
-            return maxSum
           }
+    
+          return sum;
+        }
+    
+      function maxSubarrSum(arr: number[], k: number) {
+        let maxSum = -Infinity;
+
+        for (let i = 0; i < arr.length - k; i++) {
+          let currentSum = 0;
+
+          for (let j = i; j < i + k; j++) {
+            currentSum += arr[j]
+          }
+
+          maxSum = Math.max(maxSum, currentSum) //0,12 return 12; 12, 43 return 43
+        }
+
+        return maxSum
+      }
           
           console.time("maxSubarrSum")
           console.log([2, 3,7,11, 4, 5, 10, 23, 1, 2, 23], maxSubarrSum([2, 3,-7,11, 4, 5, 10, -23, 1, -2, 23], 4) )
