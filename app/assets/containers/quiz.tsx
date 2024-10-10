@@ -54,15 +54,30 @@ export default function Quiz() {
       //     }
       //   }
       // }
-      // const stack = new Stack();
-
-      const stack = { peek: () => 4, push: (item: any) => item, pop: () => true} // fake new class
-
-      // function balancedParenthesis(parenthesis) {
+      
+      // function balancedParenthesis(str) {
+      //   const stack = new Stack();
+      
+      //   for ( let i = 0; i < str.length; i++){
+      //     if(str[i] === '('){
+      //       stack.push(str[i])
+      //     }else if(str[i] === ')') {
+      //       if(stack.isEmpty()){
+      //         return false
+      //       }
+      //       stack.pop()
+      //     }
+      //   }
+      
+      //   return stack.isEmpty()
+      // }
+      // let i = 0
+      // function balancedParenthesisMe(parenthesis) {
+      //   const stack = new Stack();
       //   const map = {
       //     "(": ")"
       //   };
-    
+      
       //   if(parenthesis === '' ){
       //     if(stack.peek()){
       //       return false
@@ -75,23 +90,28 @@ export default function Quiz() {
       //       stack.pop()
       //     }
       //   }
-    
-      //   return balancedParenthesis(parenthesis.slice(i++))
+      
+      //   return balancedParenthesisMe(parenthesis.slice(i++))
       // }
-    
-      // console.log(balancedParenthesis('()()()') )
+      // console.time("balancedParenthesis")
+      // console.log(balancedParenthesis('()()()()') ) //balancedParenthesis: 2.254ms
+      // console.timeEnd("balancedParenthesis")
       
-      function reverseStringStack(str = ''): string{
-        if(str.length === 0){
-          return ''
-        } 
+      // console.time("balancedParenthesisMe")
+      // console.log(balancedParenthesisMe('()()()()') ) //balancedParenthesisMe: 0.231ms mine was faster :)
+      // console.timeEnd("balancedParenthesisMe")
+      
+      // function reverseStringStack(str = ''): string{
+      //   if(str.length === 0){
+      //     return ''
+      //   } 
         
-        stack.push(str.at(str.length - 1))
+      //   stack.push(str.at(str.length - 1))
       
-        return stack.peek() + reverseStringStack(str.slice(0, str.length - 1))
-      }
+      //   return stack.peek() + reverseStringStack(str.slice(0, str.length - 1))
+      // }
       
-      console.log(reverseStringStack('hello world'))
+      // console.log(reverseStringStack('hello world'))
 
       /////////////////////////!mine
       function reverseString(str = ''): string {
