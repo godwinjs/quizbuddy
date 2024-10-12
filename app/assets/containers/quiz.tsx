@@ -12,6 +12,18 @@ export default function Quiz() {
     let answered: any = []
 
     React.useEffect(() => {
+      // recusive func logs a range of numbers from min to max
+      function numberRange(min: number, max: number): number[] {
+        if( min === max){
+          return [max]
+        }
+
+        // return [ min ].concat(numberRange(min + 1, max)) // works
+        return [ min, ...numberRange(min+1, max) ]
+      }
+
+      // console.log(numberRange(2, 6))
+
       // class Stack {
 
       //   constructor () {
