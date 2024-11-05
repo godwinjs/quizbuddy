@@ -16,6 +16,15 @@ export default function Home() {
             </span>
         </div>
       </div>
+      <div className="">
+        <h1 className="text-center text-5xl decoration hover:tracking-widest transition-all">Tailwind CSS</h1>
+        <div className="w-full bg-teal-300">width styles</div>
+        <div className="w-screen bg-gray-50">width styles</div>
+        <div className="max-w-96 mx-auto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex fugiat explicabo, dignissimos cum pariatur blanditiis maxime, quia excepturi voluptatum odio eos facilis quae magni sed laboriosam esse, consequuntur accusamus molestiae!</div>
+        <div className="w-96 mx-auto bg-slate-900">width styles</div>
+        <div className="w- text-center">width styles</div>
+        <div className="w-">width styles</div>
+      </div>
       <Quiz />
     </main>
   );
