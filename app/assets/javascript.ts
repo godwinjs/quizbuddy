@@ -63,5 +63,4 @@ export default function javascriptQues() {
             correct: false
         }
     ]
-    
 }
