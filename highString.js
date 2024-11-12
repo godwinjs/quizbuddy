@@ -93,37 +93,6 @@ Constraints:
 instructions
 */
 
-function unFactorable(n) {
-  let pieces = [];
-  let sum = 0;
-  console.log(n, "about to call outta")
-  if( !(2 <= n && n <= 4*10e6) ) return "The value of n: " + n + " is out of bound";
-  
-  for( let i = 2; i <= n; i++ ){
-    console.log( n, pieces[pieces.length - 1],sum, pieces, i)
-    
-    if(pieces.length > 0){
-
-      if(pieces[pieces.length - 1] * i === n){
-        pieces.push(i)
-        sum = pieces[pieces.length - 1] + pieces[pieces.length - 2]
-        return unFactorable(sum);
-      }else if(pieces[pieces.length - 1] * pieces[pieces.length - 1] === n){
-        console.log(sum, pieces, n, i, "2 nums got me")
-        sum = pieces[pieces.length - 1] + pieces[pieces.length - 1]
-        return unFactorable(sum);
-      }
-    }
-      
-    if(i === n && pieces.length < 1){
-      return n
-    }
-    if(n % i === 0 ) pieces.push(i)
-    
-  }
-
-  return unFactorable(sum);
-}
  /*  return pieces.reduce( (a, b, idx) => {
     if(a*b === n){
       sum = console.log(pieces.slice(0, idx+1).reduce((c, d) => c + d) )
@@ -139,4 +108,87 @@ function unFactorable(n) {
  /*  if(pieces !== 0) return unFactorable( pieces + pieces )
   return pieces.filter((a, b)=> { if( (a * b) === n) return [a, b] }) */
 
-console.log(unFactorable(50))
+ function unFactorable(n) {
+  let pieces = [];
+  let sum = 0;
+
+  if( !(2 <= n && n <= 4*10e6) ) return "The value of n: " + n + " is out of bound";
+  
+  for( let i = 2; i <= n; i++ ){
+    if(pieces.length > 0){
+      if(pieces[pieces.length - 1] * i === n){
+        pieces.push(i)
+        sum = pieces[pieces.length - 1] + pieces[pieces.length - 2]
+        return unFactorable(sum);
+      }else if(pieces[pieces.length - 1] * pieces[pieces.length - 1] === n){
+        sum = pieces[pieces.length - 1] + pieces[pieces.length - 1]
+        return unFactorable(sum);
+      }
+    }
+    if(i === n && pieces.length < 1){
+      return n
+    }
+    if(n % i === 0 ) pieces.push(i)
+  }
+  return unFactorable(sum);
+}
+
+function getPrimeFactors(num) {
+  let factors = [];
+  let divisor = 2;
+  
+  while (num >= 2) {
+      if (num % divisor === 0) {
+          factors.push(divisor);
+          num = num / divisor;
+      } else {
+          divisor++;
+      }
+  }
+  return factors;
+}
+
+function smallestValue(n) {
+  while (true) {
+      let factors = getPrimeFactors(n);
+      let sum = factors.reduce((acc, val) => acc + val, 0);
+      
+      //this is for a numbers with no prime
+      if (sum === n) {
+          return n;
+      } else {
+          n = sum;
+      }
+  }
+} 
+// console.log(smallestValue(9))
+console.log(primeFactors(15))
+// console.log(unFactorable(2))
+
+function primeFactors(num){
+  let divisor = 2;
+  let factors = [];
+
+  while ( num >= 2){
+    if( num % divisor === 0){
+      factors.push(divisor)
+      num = num / divisor;
+    }else {
+      divisor++
+    }
+  }
+
+  return factors
+
+}
+
+// function addPrime(num){
+//   let sum = primeFactors(num).reduce((a, b) => a + b, 0);
+//   if(sum === n){
+//     return n
+//   }else {
+//     n = sum
+//   }
+
+//   return n
+// }
