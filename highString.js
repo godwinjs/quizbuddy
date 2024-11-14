@@ -233,15 +233,18 @@ let highestAlphabet = '';
 const map = {};
 
   for (let i = 0; i < formatedStr.length; i++ ){
-    map[formatedStr[i]] = (map[formatedStr[i]] || '' ) + formatedStr[i]
-    if(map[formatedStr[i]].length > highestCount ){
-      highestCount = map[formatedStr[i]]
-      highestAlphabet = formatedStr[i]
+    let letter = formatedStr[i];
+
+    map[letter] = (map[letter] || '' ) + letter
+    if(map[letter].length > highestCount ){
+      highestCount = map[letter].length
+      highestAlphabet = letter
     }
   }
+  console.log(map)
 
   return highestAlphabet
 }
 
 
-console.log(longestAlphabet('HHHty7382LL;;'), 'runinf')
+console.log(longestAlphabet('HHHty7382LLLL;;'), 'runinf')
