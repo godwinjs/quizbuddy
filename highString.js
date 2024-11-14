@@ -229,7 +229,7 @@ function longestAlpha(str) {
 const map = {};
 
   for (let i = 0; i < str.length; i++ ){
-    if(/a-zA-Z/.test()){
+    if(/a-zA-Z/.test(str[i])){
       console.log(str[i])
     }
   }
