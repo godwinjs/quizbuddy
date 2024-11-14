@@ -225,15 +225,23 @@ function longChar(s) {
 // const str = "aakiAKDNEKSKSKNEJDNSJKLSNKWLMAKDOWMFCLKSsassyhwywjsgagkcdj1678293"
 // console.log(longestChar(str))
 
-function longestAlpha(str) {
+function longestAlphabet(str) {
+const formatedStr = str.replace(/[^a-zA-Z]/g, '');
+let highestCount = 0;
+let highestAlphabet = '';
+
 const map = {};
 
-  for (let i = 0; i < str.length; i++ ){
-    if(/a-zA-Z/.test(str[i])){
-      console.log(str[i])
+  for (let i = 0; i < formatedStr.length; i++ ){
+    map[formatedStr[i]] = (map[formatedStr[i]] || '' ) + formatedStr[i]
+    if(map[formatedStr[i]].length > highestCount ){
+      highestCount = map[formatedStr[i]]
+      highestAlphabet = formatedStr[i]
     }
   }
+
+  return highestAlphabet
 }
 
 
-console.log(longestAlpha('HHHty7382LL;;'), 'runinf')
+console.log(longestAlphabet('HHHty7382LL;;'), 'runinf')
