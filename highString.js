@@ -241,10 +241,9 @@ const map = {};
       highestAlphabet = letter
     }
   }
-  console.log(map)
 
   return highestAlphabet
 }
 
 
-console.log(longestAlphabet('HHHty7382LLLL;;'), 'runinf')
+console.log(longestAlphabet('HHHty7382LLLL;;'))
